@@ -7,6 +7,7 @@ from pathlib import Path
 class FileManager:
     def __init__(self):
         self.workspace = WORKSPACE if os.path.exists(WORKSPACE) else DEFAULT_WORKSPACE
+        self.root = Path(self.workspace)
         os.chdir(self.workspace)  # Установка рабочей папки
         self.level = 0
 
@@ -71,19 +72,21 @@ class FileManager:
 
     def copy_file(self, source, destination):
         try:
-
+            if self.check_child(destination):
                 shutil.copy(source, destination)
                 print(f"Файл '{source}' успешно скопирован в '{destination}'.")
-
+            else:
+                print("Папка назначения выходит за рабочую область")
         except FileNotFoundError:
             print(f"Файл '{source}' не найден.")
 
     def move_file(self, source, destination):
         try:
-
-            shutil.move(source, destination)
-            print(f"Файл '{source}' успешно перемещен в '{destination}'.")
-
+            if self.check_child(destination):
+                shutil.move(source, destination)
+                print(f"Файл '{source}' успешно перемещен в '{destination}'.")
+            else:
+                print("Папка назначения выходит за рабочую область")
         except FileNotFoundError:
             print(f"Файл '{source}' не найден.")
 
@@ -93,3 +96,9 @@ class FileManager:
             print(f"Файл '{old_name}' успешно переименован в '{new_name}'.")
         except FileNotFoundError:
             print(f"Файл '{old_name}' не найден.")
+
+    def check_child(self, destination):
+        if os.path.abspath(destination) in self.root:
+            return True
+        else:
+            return False
