@@ -98,7 +98,7 @@ class FileManager:
             print(f"Файл '{old_name}' не найден.")
 
     def check_child(self, destination):
-        if os.path.abspath(destination) in self.root:
+        if self.root in Path(os.path.abspath(destination)).parents or self.root == Path(os.path.abspath(destination)):
             return True
         else:
             return False
