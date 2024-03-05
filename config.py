@@ -1,0 +1,2 @@
+WORKSPACE = r"c:\FMTest"
+DEFAULT_WORKSPACE = r"c:"
