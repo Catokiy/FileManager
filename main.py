@@ -45,7 +45,7 @@ def main():
         elif command_name == "create_file":
             file_manager.create_file(*command_args)
         elif command_name == "write_to_file":
-            file_manager.write_to_file(command_args[0]," ".join(command_args[1:]))
+            file_manager.write_to_file(command_args[0], " ".join(command_args[1:]))
         elif command_name == "read_file":
             file_manager.read_file(*command_args)
         elif command_name == "delete_file":
