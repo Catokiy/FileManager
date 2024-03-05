@@ -1,2 +1,2 @@
-WORKSPACE = r"c:\FMTest"
-DEFAULT_WORKSPACE = r"c:"
+WORKSPACE = r"/home/nick/FMTest"
+DEFAULT_WORKSPACE = r"./FMTest"
