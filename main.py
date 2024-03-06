@@ -56,6 +56,8 @@ def main():
             file_manager.move_file(*command_args)
         elif command_name == "rename_file":
             file_manager.rename_file(*command_args)
+        elif command_name == "show_workspace":
+            file_manager.show_workspace()
         else:
             print("Неизвестная команда. Для справки введите 'help'.")
 
