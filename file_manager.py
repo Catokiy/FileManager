@@ -97,6 +97,9 @@ class FileManager:
         except FileNotFoundError:
             print(f"Файл '{old_name}' не найден.")
 
+    def show_workspace(self):
+        print(self.root)
+
     def check_child(self, destination):
         if self.root in Path(os.path.abspath(destination)).parents or self.root == Path(os.path.abspath(destination)):
             return True

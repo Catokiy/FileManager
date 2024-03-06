@@ -16,6 +16,7 @@ def main():
 
         if command[0] == "help":
             print("Доступные команды:")
+            print("- show_workspace вывести рабочую папку")
             print("- create_folder <folder_name>: создать папку")
             print("- delete_folder <folder_name>: удалить папку")
             print("- move_to_folder <folder_name>: переместиться в папку")
@@ -56,6 +57,8 @@ def main():
             file_manager.move_file(*command_args)
         elif command_name == "rename_file":
             file_manager.rename_file(*command_args)
+        elif command_name == "show_workspace":
+            file_manager.show_workspace()
         else:
             print("Неизвестная команда. Для справки введите 'help'.")
 
