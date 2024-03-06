@@ -62,6 +62,4 @@ def main():
         else:
             print("Неизвестная команда. Для справки введите 'help'.")
 
-
-if __name__ == "__main__":
-    main()
+main()
